@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professional Resume Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #333;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 5px;
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{name}}</h1>
+        <div class="contact-info">
+            <p>{{email}} | {{phone}} | {{linkedin}}</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Skills</div>
+        <ul class="skills-list">
+            {% for skill in skills %}
+            <li>{{skill}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Experience</div>
+        {% for exp in experience %}
+        <div>
+            <strong>{{exp.title}}</strong><br>
+            {{exp.company}} | {{exp.dates}}<br>
+            <ul>
+                {% for point in exp.points %}
+                <li>{{point}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        {% for edu in education %}
+        <div>
+            <strong>{{edu.degree}}</strong><br>
+            {{edu.school}} | {{edu.dates}}<br>
+            {{edu.details}}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html> 
